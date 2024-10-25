@@ -3,6 +3,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
+import { IoAdapter } from '@nestjs/platform-socket.io';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +18,8 @@ async function bootstrap() {
     }) 
   );
 
+  app.useWebSocketAdapter(new IoAdapter(app)); 
+  
   const config = new DocumentBuilder()
     .setTitle('Teslo RESTFul API')
     .setDescription('Teslo shop endpoints')
