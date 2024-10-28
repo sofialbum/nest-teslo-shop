@@ -8,7 +8,7 @@ import { JwtPayload } from '../auth/interfaces';
 
 
 
-@WebSocketGateway({ cors: true })
+@WebSocketGateway({ cors: { origin: 'https://ws-nest-sjg.netlify.app/' } })
 export class MessagesWsGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @WebSocketServer() wss: Server;
