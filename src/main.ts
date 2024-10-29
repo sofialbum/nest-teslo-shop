@@ -11,10 +11,10 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
 
-  // Configuración de CORS
   app.enableCors({
-    origin: 'https://ws-nest-sg.netlify.app', // Reemplaza con el dominio de tu frontend en producción
-    credentials: true,  // Esto habilita el envío de cookies si es necesario
+    origin: 'http://localhost:5173', // Añade aquí todos los orígenes necesarios
+    methods: ['GET', 'POST'],
+    credentials: true,
   });
 
   app.useGlobalPipes(  
